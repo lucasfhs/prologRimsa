@@ -6,12 +6,7 @@
 
 remover(_, [], []).
 
-% Caso em que o elemento a ser removido é a cabeça da lista: remove o elemento e continua removendo na cauda
-remover(E, [E|T], L) :- 
-    remover(E, T, L).
+remover(E, [E|T], L) :- remover(E, T, L).
 
-% Caso em que o elemento a ser removido não é a cabeça da lista: mantém o elemento e continua removendo na cauda
-remover(E, [H|T], [H|L]) :- 
-    E \= H, 
-    remover(E, T, L).
+remover(E, [H|T], [H|L]) :- E \= H, remover(E, T, L).
 
